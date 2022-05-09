@@ -32,12 +32,11 @@ class AddDetails extends StatelessWidget {
                       style: TextStyle(fontSize: 20.0,
                           fontWeight: FontWeight.w700),
                     ),
-                    trailing:InkWell(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MySearchPage()));
+                    trailing:IconButton( onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MySearchPage()));
 
-                      },
-                         child: const Icon(Icons.search)),
+                    },
+                        icon : const Icon(Icons.search)),
                   ),
                 ),
 
@@ -77,38 +76,41 @@ class AddDetails extends StatelessWidget {
     );
   }
   Widget getColumnTile( RecipeList recipeGetList, context, int index){
-    return Column(
-      children: [
-        const  SizedBox(height: 20,),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 0.0),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 10.0,
-            child: Container(
-              padding:const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              height: MediaQuery.of(context).size.height * 0.12,
-              child: ListTile(
-                leading: Image.asset(recipeGetList.imgURL, ),
-                title:    Row(
-                  children: [
-                    Text(recipeGetList.cost ),
-                  const  Icon(Icons.attach_money, size: 19,color: Colors.black, ),
-                  ],
-                ),
-                subtitle: Text(recipeGetList.gender),
-                trailing:  Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  child:const AddRemove(),
+    return Container(
+      color:const Color(0xFFEEEEE),
+      child: Column(
+        children: [
+          const  SizedBox(height: 20,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 0.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              elevation: 10.0,
+              child: Container(
+                padding:const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                height: MediaQuery.of(context).size.height * 0.12,
+                child: ListTile(
+                  leading: Image.asset(recipeGetList.imgURL, ),
+                  title:    Row(
+                    children: [
+                      Text(recipeGetList.cost ),
+                    const  Icon(Icons.attach_money, size: 19,color: Colors.black, ),
+                    ],
+                  ),
+                  subtitle: Text(recipeGetList.gender),
+                  trailing:  Container(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child:const AddRemove(),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
 
-      ],
+        ],
+      ),
     );
   }
 }

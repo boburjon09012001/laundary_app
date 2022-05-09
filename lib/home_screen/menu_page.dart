@@ -1,11 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:laundry_app/drawer_menu/offer_page.dart';
-import 'package:laundry_app/drawer_menu/privacy_page.dart';
-import '../drawer_menu/about_page.dart';
-import '../drawer_menu/laundries_page.dart';
+import 'package:laundry_app/widgets/drawer_widget.dart';
 import '../widgets/grid_view.dart';
-import 'main_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -18,7 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: DrawerWidgetPage(),
       body: Column(
         children: [
           SafeArea(
@@ -29,12 +25,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => DrawerWidget()));
+                          builder: (context) =>const DrawerWidgetPage()));
                     },
                     child: Image.asset("assets/images/burgerbar.png")),
-                trailing: InkWell(
-                    onTap: () {},
-                    child: const Icon(Icons.local_grocery_store_outlined)),
+                trailing: IconButton(
+                  onPressed: (){},
+                  icon:const  Icon(Icons.local_grocery_store_outlined),
+                ),
               )),
             ),
           ),
@@ -90,190 +87,33 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget  DrawerWidget() {
-    return Drawer(
-      backgroundColor: Colors.blue,
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            decoration: const BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: ListTile(
-              leading: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            const BottomNavigationBarWidget()));
-                  },
-                  child: Image.asset(
-                    'assets/listImage/x.png',
-                    width: 24.0,
-                  )),
-              title: const Text(
-                "Goldville Laundry",
-                style: TextStyle(color: Colors.white, fontSize: 19.0),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 16.0,
-            ),
-            child: Column(
-              children: [
-             const   ListTile(
-                  leading: Icon(
-                    Icons.account_circle,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'Profile',
-                    style: TextStyle(
-                      fontSize: 19,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                ListTile(
-                  leading: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>  LaundriesPage()));
-                      },
-                      child: const Icon(
-                        Icons.shopping_cart,
-                        color: Colors.white,
-                      )),
-                  title: InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => LaundriesPage()));
-                    },
-                    child:const Text(
-                      'Laundries',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  leading: InkWell(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => OfferPage()));
-                    },
-                    child:const Icon(
-                      Icons.local_offer,
-                      color: Colors.white,
-                    ),
-                  ),
-                  title: InkWell(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => OfferPage()));
-                    },
-                    child: const Text(
-                      'Offer and Promo',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  leading: InkWell(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>  PrivacyPage()));
-                    },
-                    child: const Icon(
-                      Icons.privacy_tip,
-                      color: Colors.white,
-                    ),
-                  ),
-                  title: InkWell(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>  PrivacyPage()));
-                    },
-                    child:const Text(
-                      'Privacy policy',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              const  ListTile(
-                  leading: Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'Settings',
-                    style: TextStyle(
-                      fontSize: 19,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-               ListTile(
-                  leading: InkWell(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder:
-                      (context)=> AboutPage()));
-                    },
-                    child:const Icon(
-                      Icons.sticky_note_2,
-                      color: Colors.white,
-                    ),
-                  ),
-                  title: InkWell(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder:
-                          (context)=> AboutPage()));
-                    },
-                    child: const Text(
-                      'About',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0, top: 30.0),
-            child: ListTile(
-              title: const Text(
-                'Logout',
-                style: TextStyle(
-                  fontSize: 19,
-                  color: Colors.white,
-                ),
-              ),
-              leading: InkWell(
-                  onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => exit(0)));
-                  },
-                  child: const Icon(
-                    Icons.logout,
-                    color: Colors.white,
-                  )),
-            ),
-          ),
-        ],
-      ),
-    );
+
   }
-}
+  Future showMyDialog( BuildContext context){
+    return showDialog(context: context, builder: (BuildContext context) => AlertDialog(
+      title:const Text("Do you want to exit?"),
+      actions: [
+
+        TextButton(onPressed: (){
+        }, child: InkWell(
+          onTap: (){
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => exit(0)));
+          },
+          child: const Text("Yes",
+            style: TextStyle(
+              color: Colors.green,
+            ),
+          ),
+        )),
+        TextButton(onPressed: (){
+          Navigator.pop(context);
+        }, child: const Text("No",
+          style: TextStyle(
+            color: Colors.red,
+          ),
+        )),
+      ],
+    ));
+  }
+

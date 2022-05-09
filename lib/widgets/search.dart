@@ -29,7 +29,7 @@ class MySearchPage extends StatelessWidget {
           },
           child: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Color(0xFF898989),
           ),
         ),
         title:const Text(
@@ -48,7 +48,7 @@ class MySearchPage extends StatelessWidget {
             final Things person = things[index];
             return ListTile(
               title: Text(person.name),
-              trailing: Text('${person.cost} dollor'),
+              // trailing: Text('${person.cost} dollor'),
             );
           },
 
@@ -66,8 +66,23 @@ class MySearchPage extends StatelessWidget {
               child: Text('Filter things by name  or cost', style: TextStyle(fontWeight: FontWeight.w700,
               ),),
             ),
-            failure:const Center(
-              child: Text('No things found :('),
+            failure:Center(
+              child: Column(
+                children: [
+
+                  Container(
+                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.2),
+                    child: Image.asset("assets/images/searchimg.png"),
+                  ),
+                 const Text("Item not fount",
+                    style: TextStyle(
+                      fontSize: 28.0, fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                 const Text("Try searching the item with"
+                    "\na different keyword."),
+                ],
+              ),
             ),
             filter: (person) => [
               person.name,
@@ -80,7 +95,7 @@ class MySearchPage extends StatelessWidget {
             ),
           ),
         ),
-        child: Icon(Icons.search),
+        child:const Icon(Icons.search),
       ),
     );
   }

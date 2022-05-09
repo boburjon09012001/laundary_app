@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/start_laundrary_button.dart';
 
 class LaundriesPage extends StatelessWidget {
-   LaundriesPage({Key? key}) : super(key: key);
+  const LaundriesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:laundry_app/drawer_menu/laundries_page.dart';
 import '../recipes/recipe.dart';
+import 'laundary_plus_page.dart';
 
 class GridViewWidget extends StatelessWidget {
   const GridViewWidget({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class GridViewWidget extends StatelessWidget {
         itemGrid(Recipe.recipeList[2], context),
         InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> LaundriesPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> LaundaryPlusPage()));
             },
             child: itemGrid(Recipe.recipeList[3], context)),
 
