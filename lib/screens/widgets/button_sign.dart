@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../home_screen/menu_page.dart';
+import 'package:laundry_app/screens/home_screen/bucket_page.dart';
 
 class ButtonSign extends StatelessWidget {
   const ButtonSign({Key? key}) : super(key: key);
@@ -13,15 +12,15 @@ class ButtonSign extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const MyHomePage()));
+              MaterialPageRoute(builder: (context) => const BucketPage()));
         },
         style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsets>(
-                EdgeInsets.all(12)),
+               const EdgeInsets.all(12)),
             foregroundColor:
             MaterialStateProperty.all<Color>(Colors.black),
             backgroundColor:
-            MaterialStateProperty.all<Color>(Color(0xFF0083FF)),
+            MaterialStateProperty.all<Color>(const Color(0xFF0083FF)),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),

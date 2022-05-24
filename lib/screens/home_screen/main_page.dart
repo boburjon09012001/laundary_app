@@ -3,6 +3,7 @@ import 'add_details_page.dart';
 import 'menu_page.dart';
 class BottomNavigationBarWidget extends StatefulWidget {
  const BottomNavigationBarWidget({Key? key}) : super(key: key);
+ static const String idScreen = "bottom";
 
   @override
   State<BottomNavigationBarWidget> createState() => _BottomNavigationBarWidgetState();
@@ -11,11 +12,14 @@ class BottomNavigationBarWidget extends StatefulWidget {
 int selectedIndex = 0;
 List<Widget> screen = [
  const MyHomePage(),
- const AddDetails(),
+  const AddDetails(),
   Container(),
   Container(),
 ];
+
+
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

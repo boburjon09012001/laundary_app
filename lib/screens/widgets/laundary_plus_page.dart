@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:laundry_app/recipes/laundary_recipe.dart';
-import 'package:laundry_app/widgets/start_laundrary_button.dart';
+
+import '../../models/recipes/laundary_recipe.dart';
 
 class LaundaryPlusPage extends StatelessWidget {
   const LaundaryPlusPage({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class LaundaryPlusPage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 28.0),
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.9,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                         color: Color(0xFFF9F9F9),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30.0),
@@ -82,7 +82,7 @@ class LaundaryPlusPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 46.0, left: 18.0, right: 18.0),
           child: Container(
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
                 color: Color(0xFFFFFFFF),
                 borderRadius: BorderRadius.all(
                   Radius.circular(30.0),
@@ -98,11 +98,11 @@ class LaundaryPlusPage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 40.0, left: 30.0),
                   child: Column(
                     children: [
-                      Text(recipes.name, style: TextStyle(fontSize: 18.0),),
+                      Text(recipes.name, style:const TextStyle(fontSize: 18.0),),
                       Row(
                         children: [
-                          Text(recipes.cost , style: TextStyle(fontSize: 19,color: Colors.black,),),
-                          Icon(Icons.attach_money, size: 19,color: Colors.black, ),
+                          Text(recipes.cost , style:const TextStyle(fontSize: 19,color: Colors.black,),),
+                        const  Icon(Icons.attach_money, size: 19,color: Colors.black, ),
                         ],
                       ),
                     ],
@@ -112,7 +112,7 @@ class LaundaryPlusPage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 68.0, left: 30.0),
                   child: Column(
                     children: [
-                      Text(recipes.getInfo, style: TextStyle(fontSize: 19,color: Colors.grey,), ),
+                      Text(recipes.getInfo, style:const TextStyle(fontSize: 19,color: Colors.grey,), ),
                     ],
                   ),
                 )

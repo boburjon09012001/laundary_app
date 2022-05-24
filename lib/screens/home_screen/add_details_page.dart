@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:laundry_app/recipes/recipe_list.dart';
-import 'package:laundry_app/widgets/search.dart';
+import '../../models/recipes/recipe_list.dart';
 import '../widgets/add_remove.dart';
 import '../widgets/button_sign.dart';
+import '../widgets/drawer_widget.dart';
+import '../widgets/search.dart';
+
 
 class AddDetails extends StatelessWidget {
-  const AddDetails({Key? key}) : super(key: key);
+
+ const AddDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:const Color(0xFFEEEEE),
+      backgroundColor:const Color(0x0ffeeeee),
       body: ListView(
         children: [
           SafeArea(
@@ -21,7 +24,7 @@ class AddDetails extends StatelessWidget {
                   child: ListTile(
                     leading: InkWell(
                       onTap: (){
-                        Navigator.pop(context);
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const DrawerWidgetPage() ));
                       },
                       child: const Icon(
                         Icons.arrow_back,
@@ -52,9 +55,9 @@ class AddDetails extends StatelessWidget {
                       margin:const EdgeInsets.only(top: 20.0),
                       height: MediaQuery.of(context).size.height * 0.78,
                       child:     ListView.builder(
-                        itemCount: 6,
+                        itemCount: RecipeElement.recipes.length,
                         itemBuilder: (BuildContext context, int index){
-                          return  getColumnTile(RecipeList.recipeGetList.elementAt(index), context , index);
+                          return  getColumnTile(RecipeElement.recipes.elementAt(index), context , index);
 
                         },
                       ),
@@ -75,9 +78,9 @@ class AddDetails extends StatelessWidget {
       ),
     );
   }
-  Widget getColumnTile( RecipeList recipeGetList, context, int index){
+  Widget getColumnTile( RecipeElement recipe, context, int index){
     return Container(
-      color:const Color(0xFFEEEEE),
+      color:const Color(0x0ffeeeee),
       child: Column(
         children: [
           const  SizedBox(height: 20,),
@@ -92,17 +95,17 @@ class AddDetails extends StatelessWidget {
                 padding:const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                 height: MediaQuery.of(context).size.height * 0.12,
                 child: ListTile(
-                  leading: Image.asset(recipeGetList.imgURL, ),
+                  leading: Image.asset(recipe.imgURL, ),
                   title:    Row(
                     children: [
-                      Text(recipeGetList.cost ),
+                      Text(recipe.cost ),
                     const  Icon(Icons.attach_money, size: 19,color: Colors.black, ),
                     ],
                   ),
-                  subtitle: Text(recipeGetList.gender),
+                  subtitle: Text(recipe.gender),
                   trailing:  Container(
                     width: MediaQuery.of(context).size.width * 0.3,
-                    child:const AddRemove(),
+                    child:  CounterPage(index),
                   ),
                 ),
               ),

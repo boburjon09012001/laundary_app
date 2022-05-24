@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../recipes/recipe.dart';
+import '../../models/recipes/recipe.dart';
 import 'laundary_plus_page.dart';
 
 class GridViewWidget extends StatelessWidget {

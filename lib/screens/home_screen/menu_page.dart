@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:laundry_app/widgets/drawer_widget.dart';
+import 'package:laundry_app/screens/home_screen/bucket_page.dart';
+import '../widgets/drawer_widget.dart';
 import '../widgets/grid_view.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -29,7 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Image.asset("assets/images/burgerbar.png")),
                 trailing: IconButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>const BucketPage()));
+                  },
                   icon:const  Icon(Icons.local_grocery_store_outlined),
                 ),
               )),

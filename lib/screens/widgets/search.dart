@@ -20,8 +20,9 @@ class MySearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFAFAFA),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFAFAFA),
         elevation: 0.0,
         leading: InkWell(
           onTap: (){
@@ -29,7 +30,7 @@ class MySearchPage extends StatelessWidget {
           },
           child: const Icon(
             Icons.arrow_back,
-            color: Color(0xFF898989),
+            color: Colors.black,
           ),
         ),
         title:const Text(
@@ -55,15 +56,25 @@ class MySearchPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: 'Search things',backgroundColor: Colors.blue,
+        tooltip: ' Search things',backgroundColor: Colors.blue,
         onPressed: () => showSearch(
           context: context,
           delegate: SearchPage<Things>(
             onQueryUpdate: (s) => print(s),
             items: things,
-            searchLabel: 'Search things',
+            searchLabel: ' Search things' ,
+            // searchStyle: TextStyle(
+            //   color: Colors.black,
+            // ),
+            // barTheme: ThemeData(
+            // appBarTheme: AppBarTheme(
+            //   // color: Color(0xFFFAFAFA),
+            //    backgroundColor: Colors.white70,
+            //  ),
+            // ),
             suggestion:const Center(
-              child: Text('Filter things by name  or cost', style: TextStyle(fontWeight: FontWeight.w700,
+              child: Text('Filter things by name or cost', style: TextStyle(fontWeight: FontWeight.w700,
+              fontSize: 15.0
               ),),
             ),
             failure:Center(
