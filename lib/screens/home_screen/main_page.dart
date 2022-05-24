@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'add_details_page.dart';
+import 'history_page.dart';
 import 'menu_page.dart';
 class BottomNavigationBarWidget extends StatefulWidget {
  const BottomNavigationBarWidget({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ List<Widget> screen = [
  const MyHomePage(),
   const AddDetails(),
   Container(),
-  Container(),
+  const HistoryPage(),
 ];
 
 

@@ -83,7 +83,7 @@ class LaundaryPlusPage extends StatelessWidget {
           padding: const EdgeInsets.only(top: 46.0, left: 18.0, right: 18.0),
           child: Container(
             decoration:const BoxDecoration(
-                color: Color(0xFFFFFFFF),
+               color: Color(0xFFBBDEFB),
                 borderRadius: BorderRadius.all(
                   Radius.circular(30.0),
                 )),
@@ -101,8 +101,8 @@ class LaundaryPlusPage extends StatelessWidget {
                       Text(recipes.name, style:const TextStyle(fontSize: 18.0),),
                       Row(
                         children: [
-                          Text(recipes.cost , style:const TextStyle(fontSize: 19,color: Colors.black,),),
-                        const  Icon(Icons.attach_money, size: 19,color: Colors.black, ),
+                          Text(recipes.cost , style:const TextStyle(fontSize: 19,color: Colors.black87,),),
+                        const  Icon(Icons.attach_money, size: 19,color: Colors.black87, ),
                         ],
                       ),
                     ],
@@ -112,7 +112,7 @@ class LaundaryPlusPage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 68.0, left: 30.0),
                   child: Column(
                     children: [
-                      Text(recipes.getInfo, style:const TextStyle(fontSize: 19,color: Colors.grey,), ),
+                      Text(recipes.getInfo, style:const TextStyle(fontSize: 19,color: Colors.black87,), ),
                     ],
                   ),
                 )

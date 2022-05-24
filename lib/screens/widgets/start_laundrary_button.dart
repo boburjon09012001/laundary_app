@@ -12,8 +12,7 @@ class StartLaundryButton extends StatelessWidget {
       height: 55.0,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const MyHomePage()));
+
         },
         style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsets>(

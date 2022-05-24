@@ -175,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
     else {
-      Navigator.of(context);
+
       displayToastMessage(context, "Error occured your account can not be connect");
     }
   }
